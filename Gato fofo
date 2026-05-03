@@ -1,0 +1,55 @@
+import tkinter as tk
+from tkinter import messagebox
+
+def fase1():
+    messagebox.showinfo("Aviso", "TU CLICOU NO OK MALUCO!")
+    messagebox.showinfo("OPA!", "Fechou o primeiro aviso!")
+    botao_ok.destroy()
+    botao_seta.pack(pady=50, padx=50)
+
+def fase2():
+    botao_seta.destroy()
+    canvas = tk.Canvas(janela, width=350, height=400, bg="#87CEEB")
+    canvas.pack()
+    
+    canvas.create_rectangle(0, 300, 350, 400, fill="#228B22")
+    
+    canvas.create_rectangle(160, 180, 190, 300, fill="#8B4513")
+    
+    canvas.create_oval(80, 50, 270, 220, fill="#006400")
+    canvas.create_oval(100, 70, 250, 200, fill="#228B22")
+    
+    # GATO
+    canvas.create_oval(170, 160, 210, 190, fill="#FF8C00")
+    canvas.create_oval(195, 145, 225, 175, fill="#FF8C00")
+    
+    canvas.create_polygon(200, 150, 195, 140, 205, 145)
+    canvas.create_polygon(215, 150, 220, 140, 210, 145)
+    
+    canvas.create_oval(203, 155, 208, 160, fill="black")
+    canvas.create_oval(212, 155, 217, 160, fill="black")
+    
+    canvas.create_polygon(208, 162, 212, 162, 210, 165, fill="pink")
+    
+    canvas.create_line(195, 160, 185, 158)
+    canvas.create_line(195, 163, 185, 163)
+    canvas.create_line(225, 160, 235, 158)
+    canvas.create_line(225, 163, 235, 163)
+    
+    canvas.create_arc(165, 165, 185, 185, start=90, extent=180, style=tk.ARC)
+    
+    canvas.create_oval(175, 185, 185, 195, fill="#FF8C00")
+    canvas.create_oval(195, 185, 205, 195, fill="#FF8C00")
+    
+    messagebox.showinfo("CONQUISTA!", "MIAU!, ACHOU O GATO!")
+
+janela = tk.Tk()
+janela.title("Caça ao Gato")
+janela.geometry("350x400")
+
+botao_ok = tk.Button(janela, text="OK", font=("Arial", 14), command=fase1)
+botao_ok.pack(pady=50, padx=50)
+
+botao_seta = tk.Button(janela, text="--->", font=("Arial", 20), command=fase2)
+
+janela.mainloop()
